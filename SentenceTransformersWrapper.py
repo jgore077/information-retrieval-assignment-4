@@ -17,7 +17,7 @@ def remove_html_tags(text):
     return re.sub(clean, '', text) 
 
  
-class BiEncoderWrapper():
+class Wrapper():
     def __init__(self,answers_file,model_name="all-MiniLM-L6-v2") -> None:
         self.model_name=model_name
         self.embeddings_file=f"{model_name}.npy"

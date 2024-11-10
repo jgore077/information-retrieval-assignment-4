@@ -5,7 +5,10 @@ import dotenv
 import os
 
 # Audrey
-PROMPT_1=""
+PROMPT_1="""You are a helpful travel assistant who answers questions about travelling. 
+          If you cannot provide a direct answer, you should give a step by step guide on how a
+          traveller might get their question answered.
+          """
 
 # Jimmy
 PROMPT_2=""
