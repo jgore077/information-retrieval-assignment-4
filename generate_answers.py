@@ -5,14 +5,33 @@ import json
 import sys
 
 KEY="Title"
+ID="Id"
+DATA_DIR="data/"
 topics_path=sys.argv[1]
 
-st=Wrapper("./data/Answers.json",make_embeddings=False)
-llm=Llama(PROMPT_2)
+prompt_1_dict={}
+prompt_2_dict={}
+llm=Llama(PROMPT_1)
 
 with open(topics_path,'r',encoding='utf-8') as topics_file:
     topics_dict=json.load(topics_file)
     
-for topic in topics_dict:
+# Assign generated text to new dictionary
+for topic in tqdm(topics_dict,desc="Generating answers for PROMPT_1"):
     text=topic[KEY]
-    print(llm.generate(text))
+    prompt_1_dict[topic[ID]]=llm.generate(text)
+
+# Write file to data directory
+with open(f'{DATA_DIR}prompt1.json') as prompt_1_file:
+    prompt_1_file.write(json.dumps(prompt_1_dict,indent=4))
+
+# For prompt 2   
+llm=Llama(PROMPT_2)
+
+for topic in tqdm(topics_dict,desc="Generating answers for PROMPT_2"):
+    text=topic[KEY]
+    prompt_2_dict[topic[ID]]=llm.generate(text)
+    
+with open(f'{DATA_DIR}prompt2.json','w') as prompt_2_file:
+    prompt_2_file.write(json.dumps(prompt_2_dict,indent=4))
+    
