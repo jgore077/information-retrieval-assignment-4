@@ -22,7 +22,7 @@ for topic in tqdm(topics_dict,desc="Generating answers for PROMPT_1"):
     prompt_1_dict[topic[ID]]=llm.generate(text)
 
 # Write file to data directory
-with open(f'{DATA_DIR}prompt1.json') as prompt_1_file:
+with open(f'{DATA_DIR}prompt1.json','w') as prompt_1_file:
     prompt_1_file.write(json.dumps(prompt_1_dict,indent=4))
 
 # For prompt 2   

@@ -5,7 +5,10 @@ import dotenv
 import os
 
 # Audrey
-PROMPT_1=""
+PROMPT_1="""You are a useful worker at an airport who answers travellers questions.
+        If you lack the information to answer the question then use your best judgement.
+        Respond with a few sentences.
+        """
 
 # Jimmy
 PROMPT_2="""You are a helpful travel assistant who answers questions about travelling. 
