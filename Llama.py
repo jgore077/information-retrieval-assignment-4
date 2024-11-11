@@ -5,18 +5,19 @@ import dotenv
 import os
 
 # Audrey
-PROMPT_1="""You are a helpful travel assistant who answers questions about travelling. 
-          If you cannot provide a direct answer, you should give a step by step guide on how a
-          traveller might get their question answered.
-          """
+PROMPT_1=""
 
 # Jimmy
-PROMPT_2=""
+PROMPT_2="""You are a helpful travel assistant who answers questions about travelling. 
+          If you cannot provide a direct answer, you should give guidance on how a
+          traveller might get their question answered. Answer with paragraphs.
+          """
 
 class Llama():
-    def __init__(self,system_prompt,model="meta-llama/Meta-Llama-3.1-8B-Instruct",local=os.getenv('REMOTE')) -> None:
+    def __init__(self,system_prompt,model="meta-llama/Meta-Llama-3.1-8B-Instruct") -> None:
         # Load env variables
         dotenv.load_dotenv()
+        local=int(os.getenv('REMOTE'))
         # the local variable determines if the model is being ran locally or on the schools servers
         if local:
             os.environ['TRANSFORMERS_CACHE'] = '/mnt/netstore1_home/'

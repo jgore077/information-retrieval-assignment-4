@@ -7,13 +7,12 @@ import sys
 KEY="Title"
 topics_path=sys.argv[1]
 
-st=Wrapper("./data/Answers.json","")
-llm=Llama(PROMPT_1)
+st=Wrapper("./data/Answers.json",make_embeddings=False)
+llm=Llama(PROMPT_2)
 
 with open(topics_path,'r',encoding='utf-8') as topics_file:
     topics_dict=json.load(topics_file)
     
-for topic in tqdm(topics_dict):
+for topic in topics_dict:
     text=topic[KEY]
-    llm.generate(text)
-    print(text)
+    print(llm.generate(text))

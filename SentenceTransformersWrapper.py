@@ -18,7 +18,7 @@ def remove_html_tags(text):
 
  
 class Wrapper():
-    def __init__(self,answers_file,model_name="all-MiniLM-L6-v2") -> None:
+    def __init__(self,answers_file,model_name="all-MiniLM-L6-v2",make_embeddings=True) -> None:
         self.model_name=model_name
         self.embeddings_file=f"{model_name}.npy"
         self.answers_file=answers_file
@@ -29,7 +29,8 @@ class Wrapper():
         try:
             self._pair_embeddings_with_ids(np.load(self.embeddings_file))
         except Exception as e:
-            self._create_embeddings()
+            if make_embeddings:
+                self._create_embeddings()
             
             
     def _pair_embeddings_with_ids(self,embeddings):
