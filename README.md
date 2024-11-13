@@ -5,6 +5,8 @@ Install the deps.
 ```
 pip install -r requirements.txt
 ```
+### Environment
+If you want to use the `Llama` class you will need to set some environment variables. To do this fill out `.env.example` with your hugging face token and change its name to `.env`.
 
 ## Scripts
 Every script has a brief description, the arguments it takes, and an example of its usage.
@@ -69,7 +71,7 @@ st_model=Wrapper("data/Answers.json","all-MiniLM-L6-v2")
 # The k parameter controls how many results are returned, the key is the doc id and value is the cosine sim
 st_model.search("How do I hitchhike from Lithuania to Estonia",k=3)
 ```
-```json
+```javascript
 {
 '13641': 0.597, 
 '175975':0.578, 
