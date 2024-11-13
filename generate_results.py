@@ -26,7 +26,7 @@ with open(llm_topics,encoding="utf-8") as generated_topics_file:
     generated_topics_dict=json.load(generated_topics_file)
 
 results_dict={}
-# For every topic we append the original title with Llama geneerated answer
+# For every topic we append the original title with Llama generated answer
 for original,generated in tzip(og_topics_dict,generated_topics_dict.keys()):
     assert original["Id"]==generated
     query=original["Title"]+"\n"+generated_topics_dict[generated]
