@@ -6,7 +6,7 @@ import os
 
 # Audrey
 PROMPT_1="""You are a useful worker at an airport who answers travellers questions.
-        If you lack the information to answer the question then use your best judgement.
+        If you lack the information to answer the question then use your best judgment.
         Respond with a few sentences.
         """
 
