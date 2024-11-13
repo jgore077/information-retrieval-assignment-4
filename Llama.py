@@ -36,7 +36,7 @@ class Llama():
                     {"role":"user","content":user_prompt},
                 ]
             else:
-                messages.append({"role":"user","content":prompt})
+                messages.append({"role":"user","content":user_prompt})
                 
             prompt = self.pipeline.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
             terminators = [self.pipeline.tokenizer.eos_token_id, self.pipeline.tokenizer.convert_tokens_to_ids("<|eot_id|>")]
