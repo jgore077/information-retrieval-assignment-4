@@ -35,7 +35,7 @@ python evaluate_individual.py <qrel_path>.tsv <result_file1>.tsv <result_file2>.
 ```
 
 ```
-python evaluate_individual.py data/qrel_1.tsv results/topic1_prompt1.tsv results/topic1_prompt2.tsv
+python evaluate_individual.py data/qrel_1.tsv results/prompt1_1.tsv results/prompt2_1.tsv
 ```
 
 ### `evaluate_mean.py`
@@ -45,7 +45,7 @@ python evaluate_mean.py <qrel_path>.tsv <result_file1>.tsv <result_file2>.tsv ..
 ```
 
 ```
-python evaluate_mean.py data/qrel_1.tsv results/topic1_prompt1.tsv results/topic1_prompt2.tsv
+python evaluate_mean.py data/qrel_1.tsv results/prompt1_1.tsv results/prompt2_1.tsv
 ```
 
 ### `skijump.py`
